@@ -1,0 +1,26 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Setup env
+        run: |
+          bash setup_env.sh
+      - name: Lint
+        run: |
+          bash lint.sh
+      - name: Test
+        run: |
+          bash test.sh
