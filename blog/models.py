@@ -35,12 +35,14 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
 
+    # pylint: disable=invalid-str-returned
     def __str__(self):
-        return self.title  # pylint: disable=invalid-str-returned
+        return self.title
 
     def get_absolute_url(self):
         """Builds a custom url for this model."""
         return reverse(
             "blog:post_detail",
+            # pylint: disable=no-member
             args=[self.publish.year, self.publish.month, self.publish.day, self.slug],
         )
