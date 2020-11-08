@@ -5,6 +5,9 @@ from django.utils import timezone
 
 
 # pylint: disable=too-few-public-methods
+from taggit.managers import TaggableManager
+
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status="published")
@@ -19,6 +22,9 @@ class Post(models.Model):
 
     # Our custom manager. Use it by calling `Post.published.???`
     published = PublishedManager()
+
+    # a manager from 3rd party library to manage tags
+    tags = TaggableManager()
 
     STATUS_CHOICES = (
         ("draft", "Draft"),
