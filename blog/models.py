@@ -46,3 +46,27 @@ class Post(models.Model):
             # pylint: disable=no-member
             args=[self.publish.year, self.publish.month, self.publish.day, self.slug],
         )
+
+
+class Comment(models.Model):
+    # set a custom related name so we can refer to all comments of the linked
+    # Post by calling `post_instance.comments`
+    #
+    # See:
+    #  https://docs.djangoproject.com/en/3.1/topics/db/queries/#backwards-related-objects
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    # to deal with inappropriate comments
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ("created",)
+
+    def __str__(self):
+        return "Comment by {} on {}".format(self.name, self.post)
