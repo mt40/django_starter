@@ -24,6 +24,8 @@ class Post(models.Model):
     published = PublishedManager()
 
     # a manager from 3rd party library to manage tags
+    # See:
+    #  https://django-taggit.readthedocs.io/en/latest/getting_started.html
     tags = TaggableManager()
 
     STATUS_CHOICES = (
