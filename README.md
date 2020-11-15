@@ -12,3 +12,17 @@ This is made possible by very helpful knowledge from the book
 - Python: 3.7+
 - Django: 3
 - Postgres: 12
+
+## Configurations
+
+### Databases
+
+| app | env | db name | user | password |
+|---|---|---|---|---|
+| blog | local | django_starter_blog_db | django_starter | 123 |
+
+### Admin users
+
+| app | env | user | password |
+|---|---|---|---|
+| blog | local | mt | 123 |
