@@ -27,13 +27,6 @@ This is made possible by very helpful knowledge from the book
 |---|---|---|---|
 | blog | local | mt | 123 |
 
-## Design
+For other information, including design decisions, please take a look at [wiki][wiki].
 
-### Search engine
-
-For simplicity, this project uses Postgres Full Text Search. We are already using Postgres
-as DB anyway. If you want to integrate another search engine like Elastic Search, consider 
-looking at [HayStack][haystack].
-
-
-[haystack]: http://haystacksearch.org
+[wiki]: https://github.com/mt40/django_starter/wiki
