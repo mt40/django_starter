@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# required for sitemap to work
+SITE_ID = 1
+
 
 # Application definition
 
@@ -37,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'django.contrib.postgres',
     'blog.apps.BlogConfig',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +83,12 @@ WSGI_APPLICATION = 'django_starter.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+        'NAME': os.environ.get('POSTGRES_DB', 'django_starter_blog_db'),
+        'USER': os.environ.get('POSTGRES_USER', 'django_starter'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', ''),
     }
 }
 
@@ -119,3 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Print emails to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
