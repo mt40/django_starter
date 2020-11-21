@@ -86,9 +86,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
-        'NAME': 'django_starter_blog_db',
-        'USER': 'django_starter',
-        'PASSWORD': '',
+        'NAME': os.environ.get('POSTGRES_DB', 'django_starter_blog_db'),
+        'USER': os.environ.get('POSTGRES_USER', 'django_starter'),
+        'PASSWORD': os.environ.get('POSTGRES_PW', ''),
     }
 }
 
