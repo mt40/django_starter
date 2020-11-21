@@ -5,6 +5,7 @@
 #  https://docs.djangoproject.com/en/3.1/ref/contrib/sitemaps/
 
 from django.contrib.sitemaps import Sitemap
+
 from .models import Post
 
 
@@ -15,5 +16,6 @@ class PostSitemap(Sitemap):
     def items(self):
         return Post.published.all()
 
+    # pylint: disable=no-self-use
     def lastmod(self, obj):
         return obj.updated
