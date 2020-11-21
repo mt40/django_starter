@@ -26,3 +26,14 @@ This is made possible by very helpful knowledge from the book
 | app | env | user | password |
 |---|---|---|---|
 | blog | local | mt | 123 |
+
+## Design
+
+### Search engine
+
+For simplicity, this project uses Postgres Full Text Search. We are already using Postgres
+as DB anyway. If you want to integrate another search engine like Elastic Search, consider 
+looking at [HayStack][haystack].
+
+
+[haystack]: http://haystacksearch.org
