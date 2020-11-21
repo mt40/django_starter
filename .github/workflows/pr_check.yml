@@ -14,7 +14,6 @@ jobs:
       postgres:
         image: postgres:12
         env:
-          POSTGRES_DB: django_starter_blog_db
           POSTGRES_USER: django_starter
           POSTGRES_PASSWORD: 123
         # Set health checks to wait until postgres has started
@@ -44,3 +43,4 @@ jobs:
           bash test.sh
         env:
           POSTGRES_HOST: postgres
+          POSTGRES_PASSWORD: 123
