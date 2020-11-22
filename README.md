@@ -6,6 +6,9 @@ A template to start a Django project. I aim to make this:
 
 This is made possible by very helpful knowledge from the book
  [Django 2 by Example](https://learning.oreilly.com/library/view/django-2-by/9781788472487/).
+ 
+CSS are taken from the source code of the book at:
+> https://github.com/PacktPublishing/Django-2-by-Example
 
 ## Requirements
 
