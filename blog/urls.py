@@ -2,7 +2,9 @@ from django.urls import path
 from . import views
 
 # For url namespace
-# See: https://docs.djangoproject.com/en/3.1/topics/http/urls/#url-namespaces-and-included-urlconfs
+# See:
+#   https://docs.djangoproject.com/en/3.1/topics/http/urls/#url-namespaces-and-included-urlconfs
+#   https://stackoverflow.com/questions/49237581/what-is-difference-between-instance-namespace-and-application-namespace-in-djang
 app_name = "blog"  # pylint: disable=invalid-name
 
 urlpatterns = [
