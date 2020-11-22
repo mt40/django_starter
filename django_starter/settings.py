@@ -34,6 +34,12 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+    # By placing app 'account' in the INSTALLED_APPS setting, we ensure
+    # that authentication templates of 'account' will be used by default instead
+    # of any other authentication templates contained in other apps.
+    # Django looks for templates by order of app appearance in the
+    # INSTALLED_APPS setting.
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
